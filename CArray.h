@@ -40,6 +40,13 @@ public: // Interface
   TData& operator[](
     unsigned int _index
   );
+
+  //Поменять местами 
+  void swap(
+	unsigned int _pos1,
+	unsigned int _pos2
+  );
+
   //Вывод массива на экран
   void show();
 

@@ -81,8 +81,10 @@ void CArray<TData>::insert(
     for (size_t i = _index + 1; i < length; i++)
       temp[i] = theArray[i - 1];
 
-	delete theArray;
-    theArray = temp;
+    delete[] theArray;
+    theArray = new TData[length];
+    for (size_t i = 0; i < length; i++)
+        theArray[i] = temp[i];
   }
 }
 
@@ -104,9 +106,11 @@ void CArray<TData>::erase(
       temp[i - 1] = theArray[i];
 
     length--;
-    delete theArray;
-    theArray = temp;
-    }
+    delete[] theArray;
+    theArray = new TData[length];
+    for (size_t i = 0; i < length; i++)
+      theArray[i] = temp[i];
+   }
 }
 
 // Очистить массив
@@ -133,7 +137,15 @@ TData& CArray<TData>::operator[](unsigned int _index)
     return theArray[_index];// TODO: вставьте здесь оператор return
   if(!theArray)
     std::cout << "Массив пуст";
-  return 0;
+  return theArray[length];
+}
+
+template<typename TData>
+void CArray<TData>::swap(unsigned int _pos1, unsigned int _pos2)
+{
+  TData temp = theArray[_pos1];
+  theArray[_pos1] = theArray[_pos2];
+  theArray[_pos2] = temp;
 }
 
 template<typename TData>
@@ -149,7 +161,7 @@ void CArray<TData>::show()
   }
   else 
   {
-    std::cout << "Массив пуст";
+    std::cout << "Массив пуст" << std::endl;
     return;
   }
   
