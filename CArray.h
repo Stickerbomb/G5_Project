@@ -4,43 +4,50 @@ class CArray
 {
 public: // Interface
  // Конструктор по умолчанию
-	CArray();
+  CArray();
 
 	// Копирующий конструктор
-	CArray(
-		const CArray& _array
-	);
+  CArray(
+    const CArray& _array
+  );
 
 	// Деструктор
-	~CArray();
+  ~CArray();
 
 	// Добавить элемент в конец массива
-	void push_back(
-		const TData& _value
-	);
+  void push_back(
+    const TData& _value
+  );
 
 	// Добавить элемент в массив по заданному индексу
-	void insert(
-		unsigned int _index,
-		const TData& _value
-	);
+  void insert(
+    unsigned int _index,
+    const TData& _value
+  );
 
 	// Удалить элемент массива по заданному индексу
-	void erase(
-		unsigned int _index
-	);
+  void erase(
+    unsigned int _index
+  );
 
 	// Очистить массив
-	void clear();
+  void clear();
 
 	// Получить размер массива
-	unsigned int size() const;
+  unsigned int size() const;
 
 	// Получить элемент массива по заданному индексу
-	TData& operator[](
-		unsigned int _index
-		);
+  TData& operator[](
+    unsigned int _index
+  );
+  //Вывод массива на экран
+  void show();
 
 protected: // Attributes
-	...
+
+  TData* theArray;
+  unsigned int length;
+
 };
+
+

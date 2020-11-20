@@ -2,10 +2,42 @@
 //
 
 #include <iostream>
+#include "CArray.h"
+#include "CArray.cpp"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+  setlocale(LC_ALL, "Russian");
+  //1.1  добавление в цикле 20 случайных чисел в диапазоне от 0 до 100.
+  CArray<int> array;
+  /*for (size_t i = 0; i < 20; i++)
+    array.push_back((rand() % 100));
+  array.show();*/
+  array.push_back(10);
+  array.push_back(2);
+  array.push_back(8);
+  array.push_back(6);
+  array.push_back(5);
+  array.push_back(11);
+  array.push_back(7);
+  array.push_back(3);
+  array.push_back(9);
+  array.push_back(1);
+  array.show();
+
+  //удаление каждого 2 элемента
+  for (size_t i = 1; i < 11; i++)
+    array.erase(i);
+  array.show();
+
+  for (size_t i = 0; i < 10; i++)
+    array.insert((rand() % array.size()), (rand() % 100));
+  array.show();
+  
+  array.clear();
+  array.show();
+
+  //
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
